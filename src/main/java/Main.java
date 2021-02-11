@@ -13,5 +13,14 @@ public class Main {
         newBalance = account.depositAmount(325);
         System.out.println(String.format("Ny balance: %d", newBalance));
 
+        newBalance = account.withDrawAmount(-200);
+        System.out.println(String.format("Ny balance: %d", newBalance));
+
+        newBalance = account.withDrawAmount(-150);
+        System.out.println(String.format("Ny balance: %d", newBalance));
+
+        newBalance = account.withDrawAmount(-150);
+        System.out.println(String.format("Ny balance: %d", newBalance));
+
     }
 }

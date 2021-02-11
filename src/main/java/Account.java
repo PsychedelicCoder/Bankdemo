@@ -21,19 +21,32 @@ public class Account {
         int sum = 0;
         for (Transaction transaction : transactions) {
             sum += transaction.getAmount();
+            //sum += transaction.getAmount();
         }
-        return 0;
+        return sum;
     }
 
+
+
+    // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
     public int withDrawAmount(int amount){
-        // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
-        return 0;
+
+        try {
+        if (amount < getBalance()) {
+            transactions.add(new Transaction(amount, new Date()));
+        }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return getBalance();
+
     }
 
     public int depositAmount(int amount){
         // TODO: skal debugges og returnere ny saldo. Smid fejl hvis amount < 0.
         transactions.add(new Transaction(amount, new Date()));
-        return 0;
+        return getBalance();
     }
 
     public List<Transaction> getTransactions() {
