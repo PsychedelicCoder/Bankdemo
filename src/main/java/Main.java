@@ -7,20 +7,27 @@ public class Main {
         Customer c1 = new Customer("Jon");
         Account account = new Account(c1);
 
-        int newBalance = account.depositAmount(125);
-        System.out.println(String.format("Ny balance: %d", newBalance));
+        int newBalance = account.depositAmount(375);
+        System.out.println(String.format("Ny balance: %d", account.getBalance()));
 
-        newBalance = account.depositAmount(325);
-        System.out.println(String.format("Ny balance: %d", newBalance));
+        newBalance = account.depositAmount(25);
+        System.out.println(String.format("Ny balance: %d", account.getBalance()));
 
-        newBalance = account.withDrawAmount(-200);
-        System.out.println(String.format("Ny balance: %d", newBalance));
+        try {
+            newBalance = account.withDrawAmount(200);
+        } catch (InsufficientFundsException e) {
+            e.printErrorMessage();
+        }
+        System.out.println(String.format("Ny balance: %d", account.getBalance()));
 
-        newBalance = account.withDrawAmount(-150);
-        System.out.println(String.format("Ny balance: %d", newBalance));
 
-        newBalance = account.withDrawAmount(-150);
-        System.out.println(String.format("Ny balance: %d", newBalance));
+        try {
+            newBalance = account.withDrawAmount(200);
+        } catch (InsufficientFundsException e) {
+            e.printErrorMessage();
+        }
+        System.out.println(String.format("Ny balance: %d", account.getBalance()));
+
 
     }
 }

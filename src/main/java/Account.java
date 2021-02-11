@@ -29,18 +29,14 @@ public class Account {
 
 
     // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
-    public int withDrawAmount(int amount){
-
-        try {
-        if (amount < getBalance()) {
-            transactions.add(new Transaction(amount, new Date()));
+    public int withDrawAmount(int amount) throws InsufficientFundsException{
+        // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
+        if(amount <= getBalance()) {
+            transactions.add(new Transaction(-amount, new Date()));
+        } else {
+            throw new InsufficientFundsException();
         }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
-        return getBalance();
-
+        return 0;
     }
 
     public int depositAmount(int amount){
