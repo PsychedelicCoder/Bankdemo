@@ -21,7 +21,6 @@ public class Account {
         int sum = 0;
         for (Transaction transaction : transactions) {
             sum += transaction.getAmount();
-            //sum += transaction.getAmount();
         }
         return sum;
     }
