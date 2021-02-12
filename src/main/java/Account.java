@@ -35,17 +35,17 @@ public class Account {
         } else {
             throw new InsufficientFundsException();
         }
-        return 0;
+        return getBalance();
     }
 
     // TODO: skal debugges og returnere ny saldo. Smid fejl hvis amount < 0.
     public int depositAmount(int amount) throws InvalidAmountException{
-        if(amount < 0) {
+        if(amount > 0) {
             transactions.add(new Transaction(amount, new Date()));
         } else {
             throw new InvalidAmountException();
         }
-        return 0;
+        return getBalance();
     }
 
     public List<Transaction> getTransactions() {

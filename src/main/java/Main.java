@@ -17,14 +17,14 @@ public class Main {
         System.out.println(String.format("Ny balance: %d", account.getBalance()));
 
         try {
-             newBalance = account.depositAmount(375);
+             newBalance = account.depositAmount(55);
         }catch (InvalidAmountException e) {
             e.printErrorMessage();
         }
         System.out.println(String.format("Ny balance: %d", account.getBalance()));
 
         try {
-             newBalance = account.depositAmount(-10);
+             newBalance = account.depositAmount(10);
         }catch (InvalidAmountException e) {
             e.printErrorMessage();
         }
