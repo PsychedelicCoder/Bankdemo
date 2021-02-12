@@ -30,7 +30,6 @@ public class Account {
 
     // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
     public int withDrawAmount(int amount) throws InsufficientFundsException{
-        // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
         if(amount <= getBalance()) {
             transactions.add(new Transaction(-amount, new Date()));
         } else {
@@ -39,10 +38,14 @@ public class Account {
         return 0;
     }
 
-    public int depositAmount(int amount){
-        // TODO: skal debugges og returnere ny saldo. Smid fejl hvis amount < 0.
-        transactions.add(new Transaction(amount, new Date()));
-        return getBalance();
+    // TODO: skal debugges og returnere ny saldo. Smid fejl hvis amount < 0.
+    public int depositAmount(int amount) throws InvalidAmountException{
+        if(amount < 0) {
+            transactions.add(new Transaction(amount, new Date()));
+        } else {
+            throw new InvalidAmountException();
+        }
+        return 0;
     }
 
     public List<Transaction> getTransactions() {
